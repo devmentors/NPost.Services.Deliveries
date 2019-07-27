@@ -1,0 +1,31 @@
+@url = http://localhost:5001
+@deliveryId = 00000000-0000-0000-0000-000000000000
+@parcels =  ['00000000-0000-0000-0000-000000000000', '00000000-0000-0000-0000-000000000000']
+
+###
+GET {{url}}/deliveries/{{deliveryId}}
+
+###
+POST {{url}}/deliveries
+Content-Type: application/json
+
+{
+  "parcels": {{parcels}}
+}
+
+###
+POST {{url}}/deliveries/{{deliveryId}}/complete
+Content-Type: application/json
+
+{
+  "deliveryId": "{{deliveryId}}"
+}
+
+###
+POST {{url}}/deliveries/{{deliveryId}}/fail
+Content-Type: application/json
+
+{
+  "deliveryId": "{{deliveryId}}",
+  "reason": "Lost parcels."
+}
