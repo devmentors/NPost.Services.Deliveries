@@ -38,7 +38,7 @@ namespace NPost.Services.Deliveries.Infrastructure
                 .AddHttpClient()
                 .AddConsul()
                 .AddFabio()
-                .AddRabbitMq()
+                .AddRabbitMq<CorrelationContext>()
                 .AddMongo()
                 .AddSwaggerDocs()
                 .AddWebApiSwaggerDocs();
