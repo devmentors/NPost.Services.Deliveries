@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using Convey.CQRS.Events;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using NPost.Services.Deliveries.Core.Repositories;
 
 namespace NPost.Services.Deliveries.Application.Events.External.Handlers

@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Convey.CQRS.Commands;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using NPost.Services.Deliveries.Application.Events;
 using NPost.Services.Deliveries.Core.Repositories;
 
