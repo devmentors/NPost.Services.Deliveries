@@ -35,7 +35,6 @@ namespace NPost.Services.Deliveries.Application.Commands.Handlers
 
         public async Task HandleAsync(StartDelivery command)
         {
-            _logger.LogInformation(JsonConvert.SerializeObject(_appContext));
             if (command.Parcels is null)
             {
                 throw new Exception("Parcels to be delivered were not specified.");

@@ -27,7 +27,6 @@ namespace NPost.Services.Deliveries.Application.Commands.Handlers
 
         public async Task HandleAsync(FailDelivery command)
         {
-            _logger.LogInformation(JsonConvert.SerializeObject(_appContext));
             var delivery = await _deliveriesRepository.GetAsync(command.DeliveryId);
             if (delivery is null)
             {

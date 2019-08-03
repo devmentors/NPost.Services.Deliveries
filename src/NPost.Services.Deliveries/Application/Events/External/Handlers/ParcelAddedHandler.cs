@@ -27,7 +27,6 @@ namespace NPost.Services.Deliveries.Application.Events.External.Handlers
 
         public async Task HandleAsync(ParcelAdded @event)
         {
-            _logger.LogInformation(JsonConvert.SerializeObject(_appContext));
             var parcel = await _parcelsServiceClient.GetAsync(@event.ParcelId);
             if (parcel is null)
             {

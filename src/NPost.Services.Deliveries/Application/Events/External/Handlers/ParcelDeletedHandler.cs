@@ -21,7 +21,6 @@ namespace NPost.Services.Deliveries.Application.Events.External.Handlers
         
         public async Task HandleAsync(ParcelDeleted @event)
         {
-            _logger.LogInformation(JsonConvert.SerializeObject(_appContext));
             await _parcelsRepository.DeleteAsync(@event.ParcelId);
             _logger.LogInformation($"Deleted a parcel with id: {@event.ParcelId}");
         }
