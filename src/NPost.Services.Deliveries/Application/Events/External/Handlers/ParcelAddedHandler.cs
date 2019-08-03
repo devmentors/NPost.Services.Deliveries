@@ -12,13 +12,15 @@ namespace NPost.Services.Deliveries.Application.Events.External.Handlers
     {
         private readonly IParcelsRepository _parcelsRepository;
         private readonly IParcelsServiceClient _parcelsServiceClient;
+        private readonly IAppContext _appContext;
         private readonly ILogger<ParcelAddedHandler> _logger;
 
         public ParcelAddedHandler(IParcelsRepository parcelsRepository, IParcelsServiceClient parcelsServiceClient,
-            ILogger<ParcelAddedHandler> logger)
+            IAppContext appContext, ILogger<ParcelAddedHandler> logger)
         {
             _parcelsRepository = parcelsRepository;
             _parcelsServiceClient = parcelsServiceClient;
+            _appContext = appContext;
             _logger = logger;
         }
 

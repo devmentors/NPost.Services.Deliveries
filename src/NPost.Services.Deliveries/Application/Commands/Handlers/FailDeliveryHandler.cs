@@ -12,13 +12,15 @@ namespace NPost.Services.Deliveries.Application.Commands.Handlers
     {
         private readonly IDeliveriesRepository _deliveriesRepository;
         private readonly IMessageBroker _messageBroker;
+        private readonly IAppContext _appContext;
         private readonly ILogger<FailDeliveryHandler> _logger;
 
         public FailDeliveryHandler(IDeliveriesRepository deliveriesRepository, IMessageBroker messageBroker,
-            ILogger<FailDeliveryHandler> logger)
+            IAppContext appContext, ILogger<FailDeliveryHandler> logger)
         {
             _deliveriesRepository = deliveriesRepository;
             _messageBroker = messageBroker;
+            _appContext = appContext;
             _logger = logger;
         }
 
