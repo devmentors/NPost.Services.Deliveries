@@ -8,13 +8,11 @@ namespace NPost.Services.Deliveries.Application.Events.External.Handlers
     public class ParcelDeletedHandler : IEventHandler<ParcelDeleted>
     {
         private readonly IParcelsRepository _parcelsRepository;
-        private readonly IAppContext _appContext;
         private readonly ILogger<ParcelDeleted> _logger;
 
-        public ParcelDeletedHandler(IParcelsRepository parcelsRepository, IAppContext appContext, ILogger<ParcelDeleted> logger)
+        public ParcelDeletedHandler(IParcelsRepository parcelsRepository, ILogger<ParcelDeleted> logger)
         {
             _parcelsRepository = parcelsRepository;
-            _appContext = appContext;
             _logger = logger;
         }
         

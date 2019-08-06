@@ -17,18 +17,16 @@ namespace NPost.Services.Deliveries.Application.Commands.Handlers
         private readonly IParcelsRepository _parcelsRepository;
         private readonly IRoutingServiceClient _routingServiceClient;
         private readonly IMessageBroker _messageBroker;
-        private readonly IAppContext _appContext;
         private readonly ILogger<StartDeliveryHandler> _logger;
 
         public StartDeliveryHandler(IDeliveriesRepository deliveriesRepository, IParcelsRepository parcelsRepository,
             IRoutingServiceClient routingServiceClient, IMessageBroker messageBroker,
-            IAppContext appContext, ILogger<StartDeliveryHandler> logger)
+            ILogger<StartDeliveryHandler> logger)
         {
             _deliveriesRepository = deliveriesRepository;
             _parcelsRepository = parcelsRepository;
             _routingServiceClient = routingServiceClient;
             _messageBroker = messageBroker;
-            _appContext = appContext;
             _logger = logger;
         }
 
