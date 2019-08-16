@@ -5,6 +5,7 @@ using Convey.Discovery.Consul;
 using Convey.Docs.Swagger;
 using Convey.HTTP;
 using Convey.LoadBalancing.Fabio;
+using Convey.MessageBrokers.CQRS;
 using Convey.MessageBrokers.RabbitMQ;
 using Convey.Persistence.MongoDB;
 using Convey.WebApi;
@@ -15,6 +16,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using NPost.Services.Deliveries.Application;
+using NPost.Services.Deliveries.Application.Events;
 using NPost.Services.Deliveries.Application.Services.Clients;
 using NPost.Services.Deliveries.Core.Repositories;
 using NPost.Services.Deliveries.Infrastructure.Contexts;
@@ -57,7 +59,8 @@ namespace NPost.Services.Deliveries.Infrastructure
                 .UseSwagger()
                 .UseSwaggerUI()
                 .UseSwaggerDocs()
-                .UseRabbitMq();
+                .UseRabbitMq()
+                .SubscribeEvent<ParcelAdded>();
 
             return app;
         }
