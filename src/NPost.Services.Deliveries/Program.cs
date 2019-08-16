@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using NPost.Services.Deliveries.Application;
+using NPost.Services.Deliveries.Application.Commands;
 using NPost.Services.Deliveries.Infrastructure;
 
 namespace NPost.Services.Deliveries
@@ -26,7 +27,9 @@ namespace NPost.Services.Deliveries
                 .Configure(app => app
                     .UseInfrastructure()
                     .UseDispatcherEndpoints(endpoints => endpoints
-                        .Get("", ctx => ctx.Response.WriteAsync(ctx.RequestServices.GetService<AppOptions>().Name))))
+                        .Get("", ctx => ctx.Response.WriteAsync(ctx.RequestServices.GetService<AppOptions>().Name))
+                        .Post<StartDelivery>("deliveries",
+                            afterDispatch: (cmd, ctx) => ctx.Response.Created($"deliveries/{cmd.DeliveryId}"))))
                 .UseLogging()
                 .Build()
                 .RunAsync();

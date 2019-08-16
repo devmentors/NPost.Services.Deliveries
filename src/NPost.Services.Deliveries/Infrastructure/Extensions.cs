@@ -31,6 +31,7 @@ namespace NPost.Services.Deliveries.Infrastructure
             builder.Services.AddTransient<IMessageBroker, MessageBroker>();
             builder.Services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
             builder.Services.AddTransient<IParcelsRepository, ParcelsMongoRepository>();
+            builder.Services.AddTransient<IDeliveriesRepository, DeliveriesMongoRepository>();
             builder.Services.AddTransient<IRoutingServiceClient, RoutingServiceClient>();
             builder.Services.AddTransient<IAppContextFactory, AppContextFactory>();
             builder.Services.AddTransient(ctx => ctx.GetRequiredService<IAppContextFactory>().Create());
